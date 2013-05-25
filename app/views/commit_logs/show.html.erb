@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @commit_log.name %>
+</p>
+
+<p>
+  <strong>Repository url:</strong>
+  <%= @commit_log.safe_repository_url %>
+</p>
+
+<p>
+  <strong>Since:</strong>
+  <%= @commit_log.since %>
+</p>
+
+<p>
+  <strong>Until:</strong>
+  <%= @commit_log.until %>
+</p>
+
+
+<%= link_to 'Edit', edit_commit_log_path(@commit_log) %> |
+<%= link_to 'Back', commit_logs_path %>

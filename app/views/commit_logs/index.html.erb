@@ -1,0 +1,31 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Repository url</th>
+      <th>Since</th>
+      <th>Until</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commit_logs.each do |commit_log| %>
+    <tr>
+      <td><%= commit_log.name %></td>
+      <td><%= commit_log.safe_repository_url %></td>
+      <td><%= commit_log.since %></td>
+      <td><%= commit_log.until %></td>
+      <td><%= link_to 'Show', commit_log %></td>
+      <td><%= link_to 'Edit', edit_commit_log_path(commit_log) %></td>
+      <td><%= link_to 'Destroy', commit_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Commit Log', new_commit_log_path %>
