@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def dashboard
+    render :action => 'index', :layout => 'dashboard'
   end
 end
