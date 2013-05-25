@@ -38,3 +38,4 @@ gem 'jbuilder', '~> 1.0.1'
 # gem 'debugger'
 
 gem 'git'
+gem 'gravatar_image_tag'

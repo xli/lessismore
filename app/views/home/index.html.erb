@@ -1,0 +1,12 @@
+<div id="commitLogs" class="carousel slide">
+  <ol class="carousel-indicators">
+    <%= render :partial => "commit_log_indicator", :collection => CommitLog.all %>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <%= render :partial => "commit_log", :collection => CommitLog.all %>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#commitLogs" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#commitLogs" data-slide="next">&rsaquo;</a>
+</div>

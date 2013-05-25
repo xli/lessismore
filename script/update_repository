@@ -1,16 +1,7 @@
 #!/usr/bin/env /Users/xli/code/lessismore/bin/rails runner
 
-data_dir = Rails.root.join('data')
-FileUtils.mkdir_p(data_dir)
-
 loop do
-  CommitLog.all.each do |cl|
-    dir = File.join(data_dir, cl.identifier)
-    if File.exists?(dir)
-      Git.bare(dir, :bare => true, :log => Rails.logger).fetch
-    else
-      Git.clone(cl.repository_url, cl.identifier, :bare => true, :path => data_dir, :log => Rails.logger)
-    end
-  end
-  sleep 1
+  CommitLog.all.each(&:update_repository)
+  Rails.logger.info("Sleep 5 minutes")
+  sleep 5.minutes
 end
