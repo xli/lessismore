@@ -31,7 +31,7 @@ a.link {
 }
 
 .continuous-deployment {
-  padding-top: 70px
+  padding-top: 105px;
 }
 
 .zero-commits {
@@ -68,4 +68,8 @@ a.link {
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+.carousel-caption h1 {
+  color: white;
 }
