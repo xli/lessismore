@@ -9,10 +9,12 @@ class CommitLog < ActiveRecord::Base
 
   def commits
     if repo = git_repo
-      repo.log.between(self.since, self.until)
+      repo.log.between(self.since, self.until).to_a
     else
       []
     end
+  rescue
+    []
   end
 
   def data_dir
