@@ -2,7 +2,7 @@
   <div class="carousel-caption-top carousel-caption">
     <h4><%= commit_log.name %></h4>
   </div>
-  <div class="row-fluid">
+  <div class="row-fluid commit-log">
     <ul class="thumbnails">
       <%= render(:partial => "commit", :collection => commit_log.commits) || render(:partial => 'success') %>
     </ul>
