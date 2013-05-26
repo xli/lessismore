@@ -1,0 +1,5 @@
+* cache deployed revision, use background job to update the deployed revision
+* a test function when put in deployed revision url and deployed revision extract regex
+* document about how to set up deployed revision url and extract regex
+* ? encrypt git repository url in database, as it may contains password
+* 
