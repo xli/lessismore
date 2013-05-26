@@ -1,3 +1,6 @@
 <li>
-  <%= gravatar(commit.author, 128) %>
+  <div class="thumbnail">
+    <%= gravatar(commit.author, 128) %>
+    <small><%= commit.message.truncate(22) %></small>
+  </div>
 </li>
