@@ -9,7 +9,7 @@ class CommitLog < ActiveRecord::Base
 
   def commits
     if repo = git_repo
-      repo.log.between(self.since, self.until).to_a
+      repo.log.between(self.since, 'HEAD').to_a
     else
       []
     end

@@ -25,3 +25,7 @@
 .carousel-indicators li {
   cursor: pointer;
 }
+
+a.link {
+  text-decoration: underline;
+}

@@ -1,9 +1,8 @@
-<div id="commitLogs" class="carousel slide">
-  <ol class="carousel-indicators">
-    <%= render :partial => "commit_log_indicator", :collection => CommitLog.all %>
-  </ol>
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <%= render :partial => "commit_log", :collection => CommitLog.all %>
-  </div>
-</div>
+
+<h3>Start continuous improvement</h3>
+
+<ol>
+  <li><%= link_to 'Add new LessMetrics', new_commit_log_path, class: 'link' %></li>
+  <li>Monitor LessMetrics by <%= link_to 'Dashboard', '/dashboard', class: 'link' %></li>
+</ol>
+

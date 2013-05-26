@@ -4,7 +4,6 @@ class CreateCommitLogs < ActiveRecord::Migration
       t.string :name
       t.string :repository_url
       t.string :since
-      t.string :until
 
       t.timestamps
     end

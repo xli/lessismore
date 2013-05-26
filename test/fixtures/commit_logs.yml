@@ -4,10 +4,8 @@ one:
   name: MyString
   repository_url: MyString
   since: MyString
-  until: MyString
 
 two:
   name: MyString
   repository_url: MyString
   since: MyString
-  until: MyString

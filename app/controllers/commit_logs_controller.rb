@@ -69,6 +69,6 @@ class CommitLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commit_log_params
-      params.require(:commit_log).permit(:name, :repository_url, :since, :until)
+      params.require(:commit_log).permit(:name, :repository_url, :since)
     end
 end

@@ -18,7 +18,7 @@ class CommitLogsControllerTest < ActionController::TestCase
 
   test "should create commit_log" do
     assert_difference('CommitLog.count') do
-      post :create, commit_log: { name: @commit_log.name, repository_url: @commit_log.repository_url, since: @commit_log.since, until: @commit_log.until }
+      post :create, commit_log: { name: @commit_log.name, repository_url: @commit_log.repository_url, since: @commit_log.since }
     end
 
     assert_redirected_to commit_log_path(assigns(:commit_log))
@@ -35,7 +35,7 @@ class CommitLogsControllerTest < ActionController::TestCase
   end
 
   test "should update commit_log" do
-    patch :update, id: @commit_log, commit_log: { name: @commit_log.name, repository_url: @commit_log.repository_url, since: @commit_log.since, until: @commit_log.until }
+    patch :update, id: @commit_log, commit_log: { name: @commit_log.name, repository_url: @commit_log.repository_url, since: @commit_log.since }
     assert_redirected_to commit_log_path(assigns(:commit_log))
   end
 

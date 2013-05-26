@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20130525052502) do
     t.string   "name"
     t.string   "repository_url"
     t.string   "since"
-    t.string   "until"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

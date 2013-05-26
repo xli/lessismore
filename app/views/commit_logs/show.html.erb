@@ -15,11 +15,6 @@
   <%= @commit_log.since %>
 </p>
 
-<p>
-  <strong>Until:</strong>
-  <%= @commit_log.until %>
-</p>
-
-
 <%= link_to 'Edit', edit_commit_log_path(@commit_log) %> |
+<%= link_to 'Destroy', @commit_log, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', commit_logs_path %>
