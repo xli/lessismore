@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130526023253) do
 
-  create_table "commit_logs", force: true do |t|
-    t.string   "name"
-    t.string   "repository_url"
-    t.string   "since"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "continuous_deployments", force: true do |t|
     t.string   "name"
     t.string   "deployed_revision_url"

@@ -1,8 +1,6 @@
 Lessismore::Application.routes.draw do
   resources :continuous_deployments
 
-  resources :commit_logs
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,0 @@
-<ul>
-  <% @commit_logs.each do |commit_log| %>
-    <li><%= link_to commit_log.name, commit_log %>
-  <% end %>
-</ul>
-
-<%= link_to 'New LessMetrics', new_commit_log_path %>
