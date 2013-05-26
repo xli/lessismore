@@ -1,0 +1,14 @@
+<% if commits.empty? %>
+  <div class="zero-commits">
+    <h1 class="large-area">Zero is a perfect start</h1>
+  </div>
+<% else %>
+  <ul class="thumbnails">
+    <li>
+      <div class="badge badge-warning">
+        <h1 style="padding: 48px"><%= commits.size %></h2>
+      </div>
+    </li>
+    <%= render(:partial => "commit", :collection => commits) %>
+  </ul>
+<% end %>

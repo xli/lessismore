@@ -1,7 +1,7 @@
 class ContinuousDeployment < ActiveRecord::Base
 
   def waiting_deployment_commits
-    git_repo.commits(deployed_revision)
+    @wdc ||= git_repo.commits(deployed_revision)
   end
 
   def safe_git_repo_url

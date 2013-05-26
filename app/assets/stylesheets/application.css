@@ -33,3 +33,21 @@ a.link {
 .continuous-deployment {
   padding-top: 70px
 }
+
+.large-area {
+  padding: 256px;
+}
+
+.zero-commits {
+  background-color: green;
+  color: white;
+  margin-top: -25px;
+  width: 100%;
+}
+
+.repository-is-not-cloned {
+  background-color: gray;
+  color: white;
+  margin-top: -25px;
+  width: 100%;
+}
