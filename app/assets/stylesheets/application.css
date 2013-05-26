@@ -34,20 +34,20 @@ a.link {
   padding-top: 70px
 }
 
-.large-area {
-  padding: 256px;
-}
-
 .zero-commits {
   background-color: green;
   color: white;
-  margin-top: -25px;
+  margin-top: -15px;
   width: 100%;
+  padding: 256px;
+  font-size: 64px;
 }
 
 .repository-is-not-cloned {
   background-color: gray;
   color: white;
-  margin-top: -25px;
+  margin-top: -15px;
   width: 100%;
+  padding: 256px;
+  font-size: 48px;
 }
