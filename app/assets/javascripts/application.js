@@ -17,4 +17,9 @@
 
 $(document).ready(function() {
   $('#dashboard').carousel();
+  if ($('#dashboard').length > 0) {
+    setTimeout(function(){
+      window.location.href = '/dashboard';
+    }, 600 * 1000);
+  }
 });
