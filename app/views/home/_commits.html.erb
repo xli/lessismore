@@ -3,9 +3,7 @@
 <% else %>
   <ul class="thumbnails">
     <li>
-      <div class="badge badge-warning">
-        <h1 style="padding: 48px"><%= commits.size %></h2>
-      </div>
+      <div class="commits-size"><%= commits.size %></div>
     </li>
     <%= render(:partial => "commit", :collection => commits) %>
   </ul>
