@@ -8,7 +8,7 @@ Lessismore::Application.routes.draw do
   root to: 'home#index'
 
   get 'dashboard' => 'home#dashboard'
-  get 'less_metrics' => 'commit_logs#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
