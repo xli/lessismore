@@ -4,7 +4,7 @@ class ContinuousDeploymentsController < ApplicationController
   # GET /continuous_deployments
   # GET /continuous_deployments.json
   def index
-    @continuous_deployments = ContinuousDeployment.all
+    @continuous_deployments = current_user.continuous_deployments
   end
 
   # GET /continuous_deployments/1
@@ -24,7 +24,7 @@ class ContinuousDeploymentsController < ApplicationController
   # POST /continuous_deployments
   # POST /continuous_deployments.json
   def create
-    @continuous_deployment = ContinuousDeployment.new(continuous_deployment_params)
+    @continuous_deployment = current_user.continuous_deployments.create(continuous_deployment_params)
 
     respond_to do |format|
       if @continuous_deployment.save
@@ -64,7 +64,7 @@ class ContinuousDeploymentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_continuous_deployment
-      @continuous_deployment = ContinuousDeployment.find(params[:id])
+      @continuous_deployment = current_user.continuous_deployments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

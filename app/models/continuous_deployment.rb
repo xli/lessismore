@@ -1,4 +1,5 @@
 class ContinuousDeployment < ActiveRecord::Base
+  belongs_to :user
 
   def waiting_deployment_commits
     @wdc ||= git_repo.commits(deployed_revision)

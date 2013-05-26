@@ -1,9 +1,9 @@
 <div id="dashboard" class="carousel slide">
   <ol class="carousel-indicators">
-    <%= render :partial => "indicator", :collection => ContinuousDeployment.all %>
+    <%= render :partial => "indicator", :collection => @continuous_deployments %>
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <%= render(:partial => "continuous_deployment", :collection => ContinuousDeployment.all) || "No Metrics" %>
+    <%= render(:partial => "continuous_deployment", :collection => @continuous_deployments) || "No Metrics" %>
   </div>
 </div>

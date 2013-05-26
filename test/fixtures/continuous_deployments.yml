@@ -2,6 +2,7 @@
 
 one:
   name: MyString
+  user: one
   deployed_revision_url: MyString
   deployed_revision_extract_regex: MyString
   git_repo_url: MyString
@@ -9,6 +10,7 @@ one:
 
 two:
   name: MyString
+  user: one
   deployed_revision_url: MyString
   deployed_revision_extract_regex: MyString
   git_repo_url: MyString

@@ -3,6 +3,7 @@ require 'test_helper'
 class ContinuousDeploymentsControllerTest < ActionController::TestCase
   setup do
     @continuous_deployment = continuous_deployments(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
