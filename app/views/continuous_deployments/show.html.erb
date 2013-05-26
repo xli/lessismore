@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @continuous_deployment.name %>
+</p>
+
+<p>
+  <strong>Deployed revision url:</strong>
+  <%= @continuous_deployment.deployed_revision_url %>
+</p>
+
+<p>
+  <strong>Deployed revision extract regex:</strong>
+  <%= @continuous_deployment.deployed_revision_extract_regex %>
+</p>
+
+<p>
+  <strong>Git repo url:</strong>
+  <%= @continuous_deployment.safe_git_repo_url %>
+</p>
+
+<p>
+  <strong>Git repo cloned:</strong>
+  <%= @continuous_deployment.git_repo_cloned %>
+</p>
+
+
+<%= link_to 'Edit', edit_continuous_deployment_path(@continuous_deployment) %> |
+<%= link_to 'Destroy', @continuous_deployment, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', continuous_deployments_path %>

@@ -1,0 +1,8 @@
+
+<h4>Continuous Deployment Metrics</h4>
+<ul>
+  <% @continuous_deployments.each do |continuous_deployment| %>
+  <li><%= link_to continuous_deployment.name, continuous_deployment %></li>
+  <% end %>
+</ul>
+<%= link_to 'New Continuous Deployment Metrics', new_continuous_deployment_path %>

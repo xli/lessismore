@@ -1,0 +1,2 @@
+module ContinuousDeploymentsHelper
+end

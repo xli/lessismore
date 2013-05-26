@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  deployed_revision_url: MyString
+  deployed_revision_extract_regex: MyString
+  git_repo_url: MyString
+  git_repo_cloned: false
+
+two:
+  name: MyString
+  deployed_revision_url: MyString
+  deployed_revision_extract_regex: MyString
+  git_repo_url: MyString
+  git_repo_cloned: false

@@ -1,0 +1,33 @@
+<%= form_for(@continuous_deployment) do |f| %>
+  <% if @continuous_deployment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@continuous_deployment.errors.count, "error") %> prohibited this continuous_deployment from being saved:</h2>
+
+      <ul>
+      <% @continuous_deployment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'input-xxlarge' %>
+  </div>
+  <div class="field">
+    <%= f.label :deployed_revision_url %>
+    <%= f.text_field :deployed_revision_url, class: 'input-xxlarge' %>
+  </div>
+  <div class="field">
+    <%= f.label :deployed_revision_extract_regex %>
+    <%= f.text_field :deployed_revision_extract_regex, class: 'input-xxlarge' %>
+  </div>
+  <div class="field">
+    <%= f.label :git_repo_url %>
+    <%= f.text_field :git_repo_url, class: 'input-xxlarge' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,7 +1,8 @@
 #!/usr/bin/env /Users/xli/code/lessismore/bin/rails runner
 
 loop do
-  CommitLog.all.each(&:update_repository)
+  ContinuousDeployment.all.each(&:update_repo)
   Rails.logger.info("Sleep 5 minutes")
+  break
   sleep 5.minutes
 end

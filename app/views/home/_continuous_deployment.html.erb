@@ -1,0 +1,18 @@
+<div class="item<%= ' active' if continuous_deployment_counter == 0 %>">
+  <div class="carousel-caption-top carousel-caption">
+    <h4><%= continuous_deployment.name %> <small><%= continuous_deployment.deployed_revision %></small></h4>
+  </div>
+  <div class="row-fluid continuous-deployment">
+    <ul class="thumbnails">
+      <% if continuous_deployment.git_repo_cloned? %>
+        <%= render(:partial => "commit", :collection => continuous_deployment.waiting_deployment_commits) || render(:partial => 'success') %>
+      <% else %>
+        <li>
+          <div style="height: 600px; width: 100%; background-color: gray">
+            <h3 style="padding: 200px; color: white">Git Repository is not cloned yet</h3>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

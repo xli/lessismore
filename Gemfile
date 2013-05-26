@@ -39,3 +39,6 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem 'git'
 gem 'gravatar_image_tag'
+gem 'httparty'
+gem 'nokogiri'
+gem 'retriable'

@@ -1,9 +1,9 @@
-<div id="commitLogs" class="carousel slide">
+<div id="dashboard" class="carousel slide">
   <ol class="carousel-indicators">
-    <%= render :partial => "commit_log_indicator", :collection => CommitLog.all %>
+    <%= render :partial => "indicator", :collection => ContinuousDeployment.all %>
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <%= render :partial => "commit_log", :collection => CommitLog.all %>
+    <%= render :partial => "continuous_deployment", :collection => ContinuousDeployment.all %>
   </div>
 </div>
