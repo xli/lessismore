@@ -22,7 +22,8 @@ class GitRepo
 
   def clone
     Rails.logger.info("Cloning repository #{@identifier}")
-    Git.clone(@url, @identifier, :bare => true, :path => GitRepo.data_dir)
+    output = %x[git clone --mirror '#{escape(@url)}' '#{escape(repo_dir)}' 2>&1]
+    Rails.logger.info(output)
   end
 
   def fetch
@@ -37,6 +38,9 @@ class GitRepo
   end
 
   private
+  def escape(str)
+    str.gsub(/'/, '')
+  end
   def git_repo
     if exists?
       Git.bare(repo_dir, :bare => true, :log => Rails.logger)

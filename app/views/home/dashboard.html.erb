@@ -4,6 +4,6 @@
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <%= render :partial => "continuous_deployment", :collection => ContinuousDeployment.all %>
+    <%= render(:partial => "continuous_deployment", :collection => ContinuousDeployment.all) || "No Metrics" %>
   </div>
 </div>
