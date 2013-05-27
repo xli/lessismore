@@ -34,8 +34,7 @@ a.link {
   padding-top: 105px;
 }
 
-.zero-commits {
-  background-color: green;
+.dashboard-message {
   color: white;
   margin-top: -15px;
   width: 100%;
@@ -43,13 +42,12 @@ a.link {
   font-size: 64px;
 }
 
-.repository-is-not-cloned {
+.green {
+  background-color: green;
+}
+
+.gray {
   background-color: gray;
-  color: white;
-  margin-top: -15px;
-  width: 100%;
-  padding: 256px;
-  font-size: 48px;
 }
 
 .commits-size {

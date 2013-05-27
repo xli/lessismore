@@ -4,6 +4,12 @@
   </ol>
   <!-- Carousel items -->
   <div class="carousel-inner">
-    <%= render(:partial => "continuous_deployment", :collection => @continuous_deployments) || "No Metrics" %>
+    <% if @continuous_deployments.any? %>
+      <%= render(:partial => "continuous_deployment", :collection => @continuous_deployments) %>
+    <% else %>
+      <div class="gray dashboard-message">
+        No metrics exist, <%= link_to 'Add new Continuous Deployment Metrics', new_continuous_deployment_path, class: 'link' %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,5 +1,6 @@
 class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
+  has_many :deployed_revisions, :order => 'id'
 
   def waiting_deployment_commits
     @wdc ||= git_repo.commits(deployed_revision)
@@ -7,6 +8,11 @@ class ContinuousDeployment < ActiveRecord::Base
 
   def safe_git_repo_url
     git_repo_url.to_s.gsub(/:[^@:]*@/, ':*****@')
+  end
+
+  def sync!
+    update_deployed_revision
+    update_repo
   end
 
   def update_repo
@@ -22,8 +28,15 @@ class ContinuousDeployment < ActiveRecord::Base
     end
   end
 
+  def update_deployed_revision
+    revision = DeployedRevision.fetch(self.deployed_revision_url, self.deployed_revision_extract_regex)
+    if revision && revision != deployed_revision
+      self.deployed_revisions.create!(version: revision)
+    end
+  end
+
   def deployed_revision
-    @deployed_revision ||= DeployedRevision.new(self.deployed_revision_url, self.deployed_revision_extract_regex).fetch
+    deployed_revisions.last.try(:version)
   end
 
   private

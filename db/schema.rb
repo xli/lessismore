@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130526230152) do
+ActiveRecord::Schema.define(version: 20130527061852) do
 
   create_table "continuous_deployments", force: true do |t|
     t.string   "name"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20130526230152) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "deployed_revisions", force: true do |t|
+    t.string   "version"
+    t.integer  "continuous_deployment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

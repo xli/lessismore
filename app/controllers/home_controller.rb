@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def test_revision_extraction
     revision = begin
-      DeployedRevision.new(params[:url], params[:extract_regex]).fetch
+      DeployedRevision.fetch(params[:url], params[:extract_regex])
     rescue => e
       "Error: #{e.message}"
     end

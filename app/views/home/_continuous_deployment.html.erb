@@ -6,9 +6,15 @@
   </div>
   <div class="row-fluid continuous-deployment">
     <% if continuous_deployment.git_repo_cloned? %>
-      <%= render(:partial => 'commits', :locals => { commits: continuous_deployment.waiting_deployment_commits })%>
+      <% if continuous_deployment.deployed_revision %>
+        <%= render(:partial => 'commits', :locals => { commits: continuous_deployment.waiting_deployment_commits })%>
+      <% else %>
+        <div class="gray dashboard-message">
+          No deployed revision found yet.
+        </div>
+      <% end %>
     <% else %>
-      <div class="repository-is-not-cloned">
+      <div class="gray dashboard-message">
         Git Repository is not cloned yet
       </div>
     <% end %>
