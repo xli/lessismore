@@ -44,6 +44,10 @@
             </ul>
           </li>
         </ul>
+        <%- else -%>
+        <ul class="nav pull-right">
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        </ul>
         <%- end %>
       </div><!--/.nav-collapse -->
     </div>

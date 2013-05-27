@@ -1,8 +1,8 @@
 class CreateDeployedRevisions < ActiveRecord::Migration
   def change
     create_table :deployed_revisions do |t|
-      t.string :version
-      t.references :continuous_deployment
+      t.references :continuous_deployment, :null => false
+      t.string :version, :null => false
 
       t.timestamps
     end
