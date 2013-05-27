@@ -14,20 +14,33 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'input-xxlarge' %>
+    <div class="muted"><small>Example: Changes on the way to production</small></div>
   </div>
-  <div class="field">
-    <%= f.label :deployed_revision_url %>
-    <%= f.text_field :deployed_revision_url, class: 'input-xxlarge' %>
-  </div>
-  <div class="field">
-    <%= f.label :deployed_revision_extract_regex %>
-    <%= f.text_field :deployed_revision_extract_regex, class: 'input-xxlarge' %>
-  </div>
-  <div class="field">
-    <%= f.label :git_repo_url %>
-    <%= f.text_field :git_repo_url, class: 'input-xxlarge' %>
-  </div>
+  <fieldset>
+    <legend>Get Deployed Revision</legend>
+    <div class="field">
+      <%= f.label :deployed_revision_url %>
+      <%= f.text_field :deployed_revision_url, class: 'input-xxlarge', placeholder: 'A web page that contains the revision of the deployed application' %>
+      <div class="muted"><small>Example: https://mingle.mingle.thoughtworks.com/about</small></div>
+    </div>
+    <div class="field">
+      <%= f.label :deployed_revision_extract_regex %>
+      <%= f.text_field :deployed_revision_extract_regex, class: 'input-xxlarge', placeholder: "A ruby regex expression to extract revision number/hash" %>
+      <div class="muted"><small>Example: Revision\s*(\w+)\s</small></div>
+    </div>
+    <div class="field">
+      <input type='button' id='test-revision-extraction' class='btn' value="Test Revision Extraction"/>
+      <span id='test-result' class="label label-info"></span>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Code Changes</legend>
+    <div class="field">
+      <%= f.label :git_repo_url %>
+      <%= f.text_field :git_repo_url, class: 'input-xxlarge' %>
+    </div>
+  </fieldset>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -22,4 +22,16 @@ $(document).ready(function() {
       window.location.href = '/dashboard';
     }, 600 * 1000);
   }
+  $('#test-revision-extraction').click(function(e) {
+    $('#test-result').text('loading...');
+    $.ajax({
+      url: '/test_revision_extraction',
+      data: {
+        url: $('#continuous_deployment_deployed_revision_url').val(),
+        extract_regex: $('#continuous_deployment_deployed_revision_extract_regex').val()
+      }
+    }).done(function(revision) {
+      $('#test-result').text(revision);
+    });
+  });
 });
