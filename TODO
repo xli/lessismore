@@ -3,3 +3,5 @@
 * document about how to set up deployed revision url and extract regex
 * ? encrypt git repository url in database, as it may contains password
 * delete repository when delete a continuous deployments metrics
+* use a pic as bg for dashboard
+* reformat words location for dashboard
