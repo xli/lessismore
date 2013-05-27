@@ -1,6 +1,6 @@
 class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
-  has_many :deployed_revisions, :order => 'id'
+  has_many :deployed_revisions, -> { order 'id' }
 
   def waiting_deployment_commits
     @wdc ||= git_repo.commits(deployed_revision)

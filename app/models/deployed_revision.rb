@@ -12,5 +12,5 @@ class DeployedRevision < ActiveRecord::Base
     end
   end
 
-  belongs_to :continuous_deployments
+  belongs_to :continuous_deployment
 end
