@@ -17,9 +17,10 @@
 }
 
 
-.carousel-caption-top {
-  top: 0;
-  bottom: auto !important;
+#dashboard .carousel-caption-top {
+  color: white;
+  position: static;
+  bottom: auto;
 }
 
 .carousel-indicators li {
@@ -31,43 +32,24 @@ a.link {
 }
 
 .continuous-deployment {
-  padding-top: 105px;
 }
 
 .dashboard-message {
   color: white;
-  margin-top: -15px;
   width: 100%;
-  padding: 256px;
+  text-align: center;
+  padding: 256px 0 256px 0;
   font-size: 64px;
-}
-
-.green {
-  background-color: green;
 }
 
 .gray {
   background-color: gray;
 }
 
-.commits-size {
-  background-color: orange;
+.commits-count {
   color: white;
-  padding: 69px 50px;
-  font-size: 72px;
-  
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.carousel-caption h1 {
-  color: white;
+  padding: 30px 50px;
+  margin-bottom: 20px;
+  font-size: 64px;
+  text-align: center;
 }

@@ -1,10 +1,10 @@
 <% if commits.blank? %>
-  <div class="green dashboard-message">0 commits</div>
+  <div class="label-success dashboard-message"><%= pluralize(0, 'commit') %></div>
 <% else %>
+  <div class="commits-count label-warning">
+    <%= pluralize(commits.size, 'commit') %>
+  </div>
   <ul class="thumbnails">
-    <li>
-      <div class="commits-size"><%= commits.size %></div>
-    </li>
     <%= render(:partial => "commit", :collection => commits) %>
   </ul>
 <% end %>
