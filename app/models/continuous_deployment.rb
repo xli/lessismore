@@ -2,6 +2,12 @@ class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
   has_many :deployed_revisions, -> { order 'id' }
 
+  def sync_all!
+    Rails.logger.info("Start sync all")
+    all.each(&:sync!)
+    Rails.logger.info("Done")
+  end
+
   def waiting_deployment_commits
     @wdc ||= git_repo.commits(deployed_revision)
   end
@@ -13,6 +19,8 @@ class ContinuousDeployment < ActiveRecord::Base
   def sync!
     update_deployed_revision
     update_repo
+  rescue => e
+    Rails.logger.error("Error when sync #{self.name}: #{e.message}\n#{e.backtrace.join("\n")}")
   end
 
   def update_repo
