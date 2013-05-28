@@ -18,7 +18,7 @@ set :output, "log/cron_log.log"
 # end
 
 # Learn more: http://github.com/javan/whenever
-
+job_type :rails4runner,  "cd :path && rails runner -e :environment ':task' :output"
 every 10.minutes do
-  runner "ContinuousDeployment.sync_all", environment: 'development'
+  rails4runner "ContinuousDeployment.sync_all!", environment: 'development'
 end

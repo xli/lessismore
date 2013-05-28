@@ -2,7 +2,7 @@ class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
   has_many :deployed_revisions, -> { order 'id' }
 
-  def sync_all!
+  def self.sync_all!
     Rails.logger.info("Start sync all")
     all.each(&:sync!)
     Rails.logger.info("Done")
