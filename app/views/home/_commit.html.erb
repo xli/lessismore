@@ -1,6 +1,8 @@
 <li>
-  <div class="thumbnail">
-    <%= gravatar(commit.author, 128) %>
-    <small><%= commit.message.truncate(22) %></small>
+  <div class="thumbnail clearfix">
+    <div class="pull-left"><%= gravatar(commit.author, 128) %></div>
+    <div class="pull-right commit-message" title="<%= commit.message if commit.message.size > 180 %>">
+      <%= commit.message.truncate(183) %>
+    </div>
   </div>
 </li>
