@@ -1,7 +1,3 @@
 #!/usr/bin/env ./bin/rails runner
 
-loop do
-  ContinuousDeployment.all.each(&:sync!)
-  Rails.logger.info("Sleep 5 minutes")
-  sleep 5.minutes
-end
+ContinuousDeployment.sync_all!

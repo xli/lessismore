@@ -17,10 +17,8 @@ class ContinuousDeployment < ActiveRecord::Base
   end
 
   def sync!
-    update_deployed_revision
-    update_repo
-  rescue => e
-    Rails.logger.error("Error when sync #{self.name}: #{e.message}\n#{e.backtrace.join("\n")}")
+    with_error_handler(:update_deployed_revision)
+    with_error_handler(:update_repo)
   end
 
   def update_repo
@@ -48,6 +46,12 @@ class ContinuousDeployment < ActiveRecord::Base
   end
 
   private
+  def with_error_handler(subject)
+    send(subject)
+  rescue => e
+    Rails.logger.error("Error when #{subject} #{self.name}: #{e.message}\n#{e.backtrace.join("\n")}")
+  end
+
   def git_repo
     @git_repo ||= GitRepo.new("#{self.id}_#{self.name.gsub(/\W/, '_')}", self.git_repo_url)
   end
