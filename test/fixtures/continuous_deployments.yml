@@ -1,17 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: Product 1
   user: one
-  deployed_revision_url: MyString
-  deployed_revision_extract_regex: MyString
-  git_repo_url: MyString
-  git_repo_cloned: false
+  deployed_revision_url: deployed_revision_url
+  deployed_revision_extract_regex: Revision (\w+)
+  git_repo_url: git_repo_url
+  git_repo_cloned: true
 
 two:
-  name: MyString
+  name: Product 2
   user: one
-  deployed_revision_url: MyString
-  deployed_revision_extract_regex: MyString
-  git_repo_url: MyString
+  deployed_revision_url: deployed_revision_url
+  deployed_revision_extract_regex: Revision (\w+)
+  git_repo_url: git_repo_url
   git_repo_cloned: false
+
+cloned_no_deploy:
+  name: Product 3
+  user: one
+  deployed_revision_url: deployed_revision_url
+  deployed_revision_extract_regex: Revision (\w+)
+  git_repo_url: git_repo_url
+  git_repo_cloned: true

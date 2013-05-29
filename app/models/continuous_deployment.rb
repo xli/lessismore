@@ -5,7 +5,7 @@ class ContinuousDeployment < ActiveRecord::Base
   def self.sync_all!
     Rails.logger.info("Start sync all")
     all.each(&:sync!)
-    Rails.logger.info("Done")
+    Rails.logger.info("Sync all done!")
   end
 
   def waiting_deployment_commits

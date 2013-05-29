@@ -5,3 +5,6 @@
 * delete repository when delete a continuous deployments metrics
 * use a pic as bg for dashboard
 * reformat words location for dashboard
+* no login need for dashboard
+* list previous deployed commits
+* rename continuous deployment name should also rename local the repo location if exists
