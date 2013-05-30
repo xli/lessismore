@@ -97,7 +97,9 @@ a.link {
   height: 108px;
   width: 108px;
   padding: 10px;
-  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
   word-wrap: break-word;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

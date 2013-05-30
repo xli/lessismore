@@ -5,7 +5,7 @@ module ApplicationHelper
       HTTParty.get(GravatarImageTag::gravatar_url(email, default: 404)).code
     end
     if code == 404
-      content_tag('div', email, class: 'default-avatar')
+      content_tag('div', email.split('@').first.capitalize, class: 'default-avatar')
     else
       gravatar_image_tag(email, class: "img-rounded", alt: author.email, gravatar: { size: size })
     end
