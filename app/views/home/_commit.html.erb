@@ -1,7 +1,7 @@
 <li>
-  <div class="thumbnail commit" data-toggle="popover"
+  <div class="commit" data-toggle="popover"
     data-original-title="<%= commit.author.email %>"
-    data-content="<div class='muted'><%= commit.sha[0..16] %></div><%= commit.message %>">
+    data-content="<div class='muted'><%= commit.sha[0..16] %></div><div class='full-cm'><%= commit.message %></div>">
     <%= gravatar(commit.author, 128) %>
     <div class="commit-message"><%= commit.message.truncate(40) %></div>
     <%- if commit_counter == 0 -%>

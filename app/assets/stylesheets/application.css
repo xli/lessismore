@@ -72,6 +72,12 @@ a.link {
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
   line-height: 14px;
+
+  word-wrap: break-word;
+}
+
+.full-cm {
+  word-wrap: break-word;
 }
 
 .head-message {
@@ -83,4 +89,18 @@ a.link {
   font-size: 10px;
   background: rgb(0, 0, 0); /* fallback color */
   background: rgba(0, 0, 0, 0.7);
+}
+
+.default-avatar {
+  color: black;
+  background: lightgray;
+  height: 108px;
+  width: 108px;
+  padding: 10px;
+  font-size: 18px;
+  word-wrap: break-word;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
 }
