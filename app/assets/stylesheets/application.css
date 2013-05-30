@@ -74,3 +74,13 @@ a.link {
   line-height: 14px;
 }
 
+.head-message {
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  color: white;
+  font-size: 10px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+}
