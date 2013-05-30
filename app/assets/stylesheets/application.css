@@ -55,6 +55,5 @@ a.link {
 }
 
 .commit-message {
-  width: 200px;
-  padding: 0 10px 0 10px;
+  font-size: 10px;
 }

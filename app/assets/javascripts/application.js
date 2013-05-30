@@ -15,13 +15,18 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+function initPage() {
   $('#dashboard').carousel();
   if ($('#dashboard').length > 0) {
     setTimeout(function(){
       window.location.href = '/dashboard';
     }, 600 * 1000);
   }
+
+  $('.commit').popover({trigger: 'hover', html: true, placement: function(e) {
+    return $(this.$element).offset().left > 300 ? 'left' : 'right';
+  }});
+
   $('#test-revision-extraction').click(function(e) {
     $('#test-result').text('loading...');
     $.ajax({
@@ -34,4 +39,7 @@ $(document).ready(function() {
       $('#test-result').text(revision);
     });
   });
-});
+}
+
+$(document).ready(initPage);
+document.addEventListener('page:load', initPage);

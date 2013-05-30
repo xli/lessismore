@@ -1,8 +1,8 @@
 <li>
-  <div class="thumbnail clearfix">
-    <div class="pull-left"><%= gravatar(commit.author, 128) %></div>
-    <div class="pull-right commit-message" title="<%= commit.message if commit.message.size > 180 %>">
-      <%= commit.message.truncate(183) %>
-    </div>
+  <div class="thumbnail commit" data-toggle="popover"
+    data-original-title="<%= commit.author.email %>"
+    data-content="<div class='muted'><%= commit.sha[0..16] %></div><%= commit.message %>">
+    <%= gravatar(commit.author, 96) %>
+    <div class="commit-message muted"><%= commit.message.truncate(16) %></div>
   </div>
 </li>

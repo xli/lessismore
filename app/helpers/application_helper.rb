@@ -1,7 +1,7 @@
 module ApplicationHelper
   def gravatar(author, size)
     email = author.email || extract_email(author.name.to_s) || author.name
-    gravatar_image_tag(email, class: "img-rounded", alt: email, title: author.name, gravatar: { size: size })
+    gravatar_image_tag(email, class: "img-rounded", alt: email, gravatar: { size: size })
   end
 
   def extract_email(txt)
