@@ -69,6 +69,6 @@ class ContinuousDeploymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def continuous_deployment_params
-      params.require(:continuous_deployment).permit(:name, :deployed_revision_url, :deployed_revision_extract_regex, :git_repo_url, :git_repo_cloned)
+      params.require(:continuous_deployment).permit(:name, :deployed_revision_url, :deployed_revision_extract_regex, :git_repo_url)
     end
 end

@@ -2,9 +2,9 @@
 ! a test function when put in deployed revision url and deployed revision extract regex
 * document about how to set up deployed revision url and extract regex
 * ? encrypt git repository url in database, as it may contains password
-* delete repository when delete a continuous deployments metrics
 * use a pic as bg for dashboard
 * reformat words location for dashboard
 * no login need for dashboard
 * list previous deployed commits
-* rename continuous deployment name should also rename local the repo location if exists
+! rename continuous deployment name should also rename local the repo location if exists
+* delete repository when delete a continuous deployments metrics

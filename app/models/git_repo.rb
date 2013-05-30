@@ -6,8 +6,9 @@ class GitRepo
     end
   end
 
-  def initialize(identifier, url)
-    @identifier, @url = identifier, url
+  def initialize(cd_id, url)
+    @url = url
+    @identifier = "#{cd_id}_#{File.basename(url).split('.').first}"
   end
 
   def repo_dir

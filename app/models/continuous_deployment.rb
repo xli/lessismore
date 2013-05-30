@@ -2,6 +2,8 @@ class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
   has_many :deployed_revisions, -> { order 'id' }
 
+  before_update :reset_git_repo_cloned_status
+
   def self.sync_all!
     Rails.logger.info("Start sync all")
     all.each(&:sync!)
@@ -45,14 +47,19 @@ class ContinuousDeployment < ActiveRecord::Base
     deployed_revisions.last.try(:version)
   end
 
+  def git_repo
+    @git_repo ||= GitRepo.new(self.id, self.git_repo_url)
+  end
+
   private
+  def reset_git_repo_cloned_status
+    self.git_repo_cloned = false if self.git_repo_url_changed?
+    true
+  end
+
   def with_error_handler(subject)
     send(subject)
   rescue => e
     Rails.logger.error("Error when #{subject} #{self.name}: #{e.message}\n#{e.backtrace.join("\n")}")
-  end
-
-  def git_repo
-    @git_repo ||= GitRepo.new("#{self.id}_#{self.name.gsub(/\W/, '_')}", self.git_repo_url)
   end
 end
