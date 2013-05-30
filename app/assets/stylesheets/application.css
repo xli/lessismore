@@ -54,6 +54,23 @@ a.link {
   text-align: center;
 }
 
-.commit-message {
-  font-size: 10px;
+.commit {
+  position: relative;
 }
+
+.commit-message {
+  padding: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: white;
+  font-size: 10px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  line-height: 14px;
+}
+
