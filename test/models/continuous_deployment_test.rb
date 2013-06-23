@@ -38,4 +38,9 @@ class ContinuousDeploymentTest < ActiveSupport::TestCase
     cd.update_attribute(:git_repo_cloned, false)
     assert !cd.git_repo_cloned?
   end
+  
+  def test_show_stories_waiting_for_deployment
+    cd = continuous_deployments(:cloned_no_deploy)
+    cd.git_repo
+  end
 end

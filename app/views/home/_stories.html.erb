@@ -1,0 +1,14 @@
+<% if stories.nil? %>
+  <div class="label-important dashboard-message">No stories found</div>
+<% elsif stories.empty? %>
+  <div class="label-success dashboard-message"><%= pluralize(0, 'story') %></div>
+<% else %>
+  <div class="commits-count label-warning">
+    <%= pluralize(stories.size, 'story') %> for <%= project %>
+  </div>
+  <div class="row-fluid">
+    <ul class="thumbnails">
+      <%= render(:partial => "story", :collection => stories) %>
+    </ul>
+  </div>
+<% end %>
