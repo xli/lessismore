@@ -3,8 +3,8 @@
 <% elsif stories.empty? %>
   <div class="label-success dashboard-message"><%= pluralize(0, 'story') %></div>
 <% else %>
-  <div class="commits-count label-warning">
-    <%= pluralize(stories.size, 'story') %> for <%= project %>
+  <div class="commits-count story-label-warning">
+    <%= pluralize(stories.size, 'story') %>
   </div>
   <div class="row-fluid">
     <ul class="thumbnails">
