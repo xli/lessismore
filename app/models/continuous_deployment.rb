@@ -16,8 +16,7 @@ class ContinuousDeployment < ActiveRecord::Base
     @wdc ||= git_repo.commits(deployed_revision)
   end
   
-  def waiting_deployment_stories
-    commits = waiting_deployment_commits
+  def waiting_deployment_stories(commits = waiting_deployment_commits)
     stories = []
     commits.each do |c|
       message = /\#(\d+)/.match(c.message) unless c.blank?
@@ -25,6 +24,7 @@ class ContinuousDeployment < ActiveRecord::Base
       stories << story_number unless story_number.blank?
     end
     stories.uniq!
+    stories
   end
 
   def safe_git_repo_url
