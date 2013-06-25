@@ -1,9 +1,11 @@
 class ContinuousDeployment < ActiveRecord::Base
   belongs_to :user
   has_many :deployed_revisions, -> { order 'id' }
-
+  
   before_update :reset_git_repo_cloned_status
 
+  DEFAULT_PROJECT = "mingle"
+  
   def self.sync_all!
     Rails.logger.info("Start sync all")
     all.each(&:sync!)
@@ -12,6 +14,17 @@ class ContinuousDeployment < ActiveRecord::Base
 
   def waiting_deployment_commits
     @wdc ||= git_repo.commits(deployed_revision)
+  end
+  
+  def waiting_deployment_stories(commits = waiting_deployment_commits)
+    stories = []
+    commits.each do |c|
+      message = /\#(\d+)/.match(c.message) unless c.blank?
+      story_number = message.captures.first unless message.blank?
+      stories << story_number unless story_number.blank?
+    end
+    stories.uniq!
+    stories
   end
 
   def safe_git_repo_url

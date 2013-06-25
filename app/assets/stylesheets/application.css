@@ -106,3 +106,9 @@ a.link {
   border-radius: 4px;
   overflow: hidden;
 }
+
+.story-label-warning,
+.story-badge-warning {
+  background-color: #56401c;
+}
+
