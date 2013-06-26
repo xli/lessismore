@@ -8,7 +8,7 @@
     <% if continuous_deployment.git_repo_cloned? %>
       <% if continuous_deployment.deployed_revision %>
         <%= render( :partial => 'commits', :locals => { commits: continuous_deployment.waiting_deployment_commits } )%>
-        <%= render( :partial => 'stories', :locals => { stories: continuous_deployment.waiting_deployment_stories } )%>
+        <%= render( :partial => 'stories', :locals => { stories: continuous_deployment.waiting_deployment_stories, fqdn: @site_fqdn } )%>
       <% else %>
         <div class="gray dashboard-message">
           No deployed revision found yet.

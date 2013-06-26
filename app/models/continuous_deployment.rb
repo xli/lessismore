@@ -4,7 +4,7 @@ class ContinuousDeployment < ActiveRecord::Base
   
   before_update :reset_git_repo_cloned_status
 
-  DEFAULT_PROJECT = "mingle"
+  DEFAULT_PROJECT = "mingle1"
   
   def self.sync_all!
     Rails.logger.info("Start sync all")
@@ -19,14 +19,21 @@ class ContinuousDeployment < ActiveRecord::Base
   def waiting_deployment_stories(commits = waiting_deployment_commits)
     stories = []
     commits.each do |c|
-      message = /\#(\d+)/.match(c.message) unless c.blank?
-      story_number = message.captures.first unless message.blank?
-      stories << story_number unless story_number.blank?
+      unless c.blank?
+        project_name = extract(/(.*)\//, c.message) || DEFAULT_PROJECT
+        story_number = extract(/\#(\d+)/, c.message) || "no story"
+      end
+      stories << { project_name => story_number }
     end
     stories.uniq!
     stories
   end
 
+  def extract(regex, message)
+    snippet = regex.match(message) unless message.blank?
+    snippet.captures.first unless snippet.blank?
+  end
+  
   def safe_git_repo_url
     git_repo_url.to_s.gsub(/:[^@:]*@/, ':*****@')
   end

@@ -1,5 +1,11 @@
 <li>
   <h1>
-    <small><%= story %></small>
+    <small>
+      <% story.each_pair do |k,v| %>
+        <a href=<%= fqdn %>/projects/<%= k %>/cards/<%= v %>>
+          <%= story %>
+        </a>
+      <% end %>
+      </small>
   </h1>
 </li>
