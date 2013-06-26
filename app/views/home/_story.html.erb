@@ -1,9 +1,9 @@
-<li>
+<li class="story_card">
   <h1>
     <small>
       <% story.each_pair do |k,v| %>
         <a href=<%= fqdn %>/projects/<%= k %>/cards/<%= v %>>
-          <%= story %>
+          <%= k %> <%= v %>
         </a>
       <% end %>
       </small>
