@@ -51,4 +51,16 @@ class ContinuousDeploymentTest < ActiveSupport::TestCase
     assert stories.include?( {"mingle" =>"789" } )
   end
 
+  def test_show_stories_with_projects_waiting_for_deployment
+    cd = continuous_deployments(:cloned_no_deploy)
+    commit_12345 = OpenStruct.new( message: "project1/#12345 - committing for awesome story")
+    another_commit_12345 = OpenStruct.new( message: "project1/#12345 - committing for awesome story - with some changes")
+    commit_789 = OpenStruct.new( message: "#789 - this story is almost done")
+    commit_build_fix = OpenStruct.new( message: "Build Fix - changing assertion to remove flakiness")
+    commits = [commit_789, commit_build_fix, commit_12345, another_commit_12345]
+    stories = cd.waiting_deployment_stories(commits)
+    assert_equal [commit_789], stories["mingle1"]["789"]
+    assert_equal [commit_12345, another_commit_12345], stories["project1"]["12345"]
+  end
+
 end

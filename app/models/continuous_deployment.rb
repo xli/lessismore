@@ -17,15 +17,17 @@ class ContinuousDeployment < ActiveRecord::Base
   end
   
   def waiting_deployment_stories(commits = waiting_deployment_commits)
-    stories = []
-    commits.each do |c|
-      unless c.blank?
-        project_name = extract(/(.*)\//, c.message) || DEFAULT_PROJECT
-        story_number = extract(/\#(\d+)/, c.message) || "no story"
+    stories = {}
+    commits.inject(stories) do |stories, commit|
+      unless commit.blank?
+        project_name = extract(/(.*)\//, commit.message) || DEFAULT_PROJECT
+        story_number = extract(/\#(\d+)/, commit.message) || "no story"
       end
-      stories << { project_name => story_number }
+      stories[project_name] = {} if stories[project_name].blank?
+      stories[project_name][story_number] = [] if stories[project_name][story_number].blank?
+      stories[project_name][story_number] << commit
+      stories
     end
-    stories.uniq!
     stories
   end
 
