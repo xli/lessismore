@@ -17,7 +17,7 @@ class GitRepo
 
   def commits(from, to='HEAD')
     if from && (repo = git_repo)
-      repo.log.between(from, to).to_a
+      repo.log(100000).between(from, to).to_a
     end
   end
 
