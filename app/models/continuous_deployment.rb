@@ -5,7 +5,7 @@ class ContinuousDeployment < ActiveRecord::Base
   before_update :reset_git_repo_cloned_status
 
   DEFAULT_PROJECT = "mingle1"
-  
+
   def self.sync_all!
     Rails.logger.info("Start sync all")
     all.each(&:sync!)

@@ -46,6 +46,15 @@ a.link {
   background-color: gray;
 }
 
+.the-commits {
+  height: 200px;
+  overflow: auto;
+  position: relative;
+}
+.the-commits li {
+  position: absolute;
+}
+
 .commits-count {
   color: white;
   padding: 30px 50px;
@@ -56,6 +65,14 @@ a.link {
 
 .commit {
   position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.7);
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .commit-message {

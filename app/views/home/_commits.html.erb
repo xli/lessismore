@@ -7,7 +7,7 @@
     <%= pluralize(commits.size, 'commit') %>
   </div>
   <div class="row-fluid">
-    <ul class="thumbnails">
+    <ul class="unstyled the-commits">
       <%= render(:partial => "commit", :collection => commits) %>
     </ul>
   </div>
