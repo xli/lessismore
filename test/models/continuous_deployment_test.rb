@@ -59,8 +59,8 @@ class ContinuousDeploymentTest < ActiveSupport::TestCase
     commit_build_fix = OpenStruct.new( message: "Build Fix - changing assertion to remove flakiness")
     commits = [commit_789, commit_build_fix, commit_12345, another_commit_12345]
     stories = cd.waiting_deployment_stories(commits)
-    assert_equal [commit_789], stories["mingle1"]["789"]
-    assert_equal [commit_12345, another_commit_12345], stories["project1"]["12345"]
+    assert_equal [commit_789], stories["789"]
+    assert_equal [commit_12345, another_commit_12345], stories["12345"]
   end
 
 end

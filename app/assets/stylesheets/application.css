@@ -54,19 +54,12 @@ a.link {
 .the-commits li {
   position: absolute;
 }
-.project-title {
+.story-number {
   background-color: gray;
   color: white;
   width: 100%;
   text-align: left;
   padding: 20px 0 20px 0;
-  font-size: 25px;
-}
-
-.story-number {
-  color: blue;
-  width: 100%;
-  text-align: vertical;
   font-size: 25px;
 }
 
