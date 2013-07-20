@@ -4,11 +4,24 @@
   <div class="label-success dashboard-message"><%= pluralize(0, 'story') %></div>
 <% else %>
   <div class="commits-count story-label-warning">
-    <%= pluralize(stories.size, 'story') %>
+    <%= pluralize(stories.size, 'project') %>
   </div>
-  <div class="row-fluid">
-    <ul class="thumbnails">
-      <%= render(:partial => "story", :collection => stories, :locals => {fqdn: fqdn}) %>
-    </ul>
-  </div>
+
+  <% stories.each_pair do |project,story_details| %>
+    <div class="project-title">
+      <%= project %>
+    </div>
+    <% story_details.each_pair do |story_number, commits| %>
+      <div class="row-fluid">
+        <div class="story-number">
+          <%= story_number %>
+        </div>
+        <ul class="thumbnails">
+          <%= render(:partial => "commit", :collection => commits) %>
+        </ul>
+      </div>
+      <br/>
+    <% end %>
+    <br/>
+  <% end %>        
 <% end %>

@@ -2,12 +2,12 @@
   <h1>
     <small>
       <% story.each_pair do |project,story_details| %>
+        Project is <%= project.inspect%>
         <% story_details.each_pair do |story_number, commits| %>
-          <a href=<%= fqdn %>/projects/<%= project %>/cards/<%= story_number %>>
             <%= project %> <%= story_number %> =>  <%= commits.count %>
           </a>
         <% end %>
       <% end %>
-      </small>
+    </small>
   </h1>
 </li>
