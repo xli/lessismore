@@ -1,5 +1,13 @@
-<li>
+<li class="story_card">
   <h1>
-    <small><%= story %></small>
+    <small>
+      <% story.each_pair do |project,story_details| %>
+        Project is <%= project.inspect%>
+        <% story_details.each_pair do |story_number, commits| %>
+            <%= project %> <%= story_number %> =>  <%= commits.count %>
+          </a>
+        <% end %>
+      <% end %>
+    </small>
   </h1>
 </li>

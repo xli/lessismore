@@ -6,9 +6,16 @@
   <div class="commits-count story-label-warning">
     <%= pluralize(stories.size, 'story') %>
   </div>
-  <div class="row-fluid">
-    <ul class="thumbnails">
-      <%= render(:partial => "story", :collection => stories) %>
-    </ul>
-  </div>
+
+  <% stories.each_pair do |story_number, commits| %>
+    <div class="row-fluid">
+      <div class="story-number">
+        <%= story_number %>
+      </div>
+      <ul class="unstyled the-commits">
+        <%= render(:partial => "commit", :collection => commits) %>
+      </ul>
+    </div>
+    <br/>
+  <% end %>
 <% end %>
