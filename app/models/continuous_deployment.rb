@@ -22,8 +22,10 @@ class ContinuousDeployment < ActiveRecord::Base
       unless commit.blank?
         story_number = extract(/\#(\d+)/, commit.message) || "no story"
       end
-      stories[story_number] = [] if stories[story_number].blank?
-      stories[story_number] << commit
+      unless merge_commit?(commit)
+        stories[story_number] = [] if stories[story_number].blank?
+        stories[story_number] << commit
+      end
       stories
     end
     stories
@@ -72,6 +74,11 @@ class ContinuousDeployment < ActiveRecord::Base
   end
 
   private
+  
+  def merge_commit?(commit)
+    commit.message =~ /Merge branch/
+  end
+  
   def reset_git_repo_cloned_status
     self.git_repo_cloned = false if self.git_repo_url_changed?
     true
