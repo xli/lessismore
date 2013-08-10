@@ -63,4 +63,15 @@ class ContinuousDeploymentTest < ActiveSupport::TestCase
     assert_equal [commit_12345, another_commit_12345], stories["12345"]
   end
 
+  def test_show_reject_commits_which_are_git_merge
+    cd = continuous_deployments(:cloned_no_deploy)
+    commit = OpenStruct.new( message: "Merge branch blah blah")
+    another_commit = OpenStruct.new( message: "made some changes to fix build")
+    another_commit_12345 = OpenStruct.new( message: "project1/#12345 - committing for awesome story - with some changes")
+    commits = [commit, another_commit, another_commit_12345]
+    stories = cd.waiting_deployment_stories(commits)
+    assert_equal [another_commit_12345], stories["12345"]
+    assert_equal [another_commit], stories["no story"]
+  end
+
 end
