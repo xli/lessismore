@@ -20,9 +20,18 @@
 
 <p>
   <strong>Git repo cloned:</strong>
-  <%= @continuous_deployment.git_repo_cloned %>
+  <%= @continuous_deployment.git_repo_cloned? %>
 </p>
 
+<p>
+  <strong>Go Pipeline Name:</strong>
+  <%= @continuous_deployment.go_pipeline_name %>
+</p>
+
+<p>
+  <strong>Go Login:</strong>
+  <%= @continuous_deployment.go_login %>
+</p>
 
 <%= link_to 'Edit', edit_continuous_deployment_path(@continuous_deployment) %> |
 <%= link_to 'Destroy', @continuous_deployment, method: :delete, data: { confirm: 'Are you sure?' } %> |

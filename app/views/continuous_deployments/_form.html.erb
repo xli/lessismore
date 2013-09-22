@@ -40,7 +40,27 @@
       <%= f.text_field :git_repo_url, class: 'input-xxlarge' %>
     </div>
   </fieldset>
+  
+  <fieldset>
+    <legend>Deployment Pipeline Details</legend>
+    <div class="field">
+      <%= f.label :go_pipeline_name %>
+      <%= f.text_field :go_pipeline_name, class: 'input-xxlarge' %>
+    </div>
+    <div class="field">
+      <%= f.label :go_login %>
+      <%= f.text_field :go_login, class: 'input-xxlarge' %>
+    </div>
+    <div class="field">
+      <%= f.label :go_password %>
+      <%= f.password_field :go_password, class: 'input-xxlarge' %>
+    </div>
+
+  </fieldset>
+  
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130527061852) do
+ActiveRecord::Schema.define(version: 20130920000302) do
 
   create_table "continuous_deployments", force: true do |t|
     t.integer  "user_id",                         null: false
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20130527061852) do
     t.boolean  "git_repo_cloned"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "go_pipeline_name"
+    t.string   "go_login"
+    t.string   "go_password"
   end
 
   create_table "deployed_revisions", force: true do |t|
