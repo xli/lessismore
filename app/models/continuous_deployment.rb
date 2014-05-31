@@ -31,6 +31,15 @@ class ContinuousDeployment < ActiveRecord::Base
     stories
   end
 
+  def waiting_deployment_authors(commits = waiting_deployment_commits)
+    authors = []
+    commits.each do |commit| 
+        authors << [commit.author.email, commit.author]
+    end
+    authors.uniq { |author| author.first}
+    Hash[authors]
+  end
+
   def extract(regex, message)
     snippet = regex.match(message) unless message.blank?
     snippet.captures.first unless snippet.blank?

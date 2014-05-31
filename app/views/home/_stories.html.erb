@@ -7,16 +7,19 @@
     <%= pluralize(stories.size, 'story') %>
   </div>
 
-  <% stories.each_pair do |story_number, commits| %>
-    <div class="row-fluid">
-      <div class="story-number">
-        <span><%= story_number %></span>
-        <div class="unstyled the-commits">
-          <%= render(:partial => "commit", :collection => commits) %>
-        </div>
-    </div>
-    </div>
-    <br/>
-  <% end %>
-  
+  <div>
+    <% stories.keys.each do |story_number| %>
+      <span class="story-number">
+        <%= story_number %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="authors">
+    <% authors.values.each do |author| %>
+      <span class="author">
+        <%= gravatar(author, 128) %>
+      </span>
+    <% end %>
+  </div>
 <% end %>
